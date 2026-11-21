@@ -50,3 +50,34 @@ as you like. A function can receive input values (parameters) and can send back 
 // console.log(calculateFee(1000));                                               // 1180
 // console.log(calculateFee(1000, 10));                                          // 1062
 // console.log(calculateFee(1000, 10, 5));                                      // 945
+
+
+// ============ Arrow function rules =============== 
+// const square = n => n * n;                              // Remember curly bracket{} must not be use in this as it is will give "undefined" bracket required return keyword for it
+// const add = (a, b) => a + b;                           // for multi parmaters use bracket() like in code i have use
+// const sayHi = () => "Hi there!";
+// const percentage = (obtained, total) => {
+// const p = (obtained / total) * 100;
+// return Math.round(p * 100) / 100;
+// };
+// const isEven = n => n % 2 === 0;
+
+// console.log(square(9));                                                    // 81
+// console.log(add(15, 27));                                                 // 42
+// console.log(sayHi());                                                    // Hi there!
+// console.log(percentage(412, 500));                                      // 82.4
+// console.log(isEven(10), isEven(7))                                     // true false
+
+
+/* -----  Functions are values In JavaScript a function is a value (its type is "function"), just like a number or a string.
+It can be stored in a variable, as you just saw, and even passed to another function as an argument.
+Functions that receive other functions are called higher-order functions and the functions passed in are callbacks ----- */
+
+// ============================ Topic 8 Recap =========================== \\
+//  ▶ A function is a named, reusable block: function name(params) { \dots {} return value; }; call it with name(args).
+//  ▶ Parameters are the names in the definition; arguments are the values in the call. Missing arguments are undefined unless a default is given (gst = 18).
+//  ▶ return sends a value back and ends the function; without it the result is undefined.
+//  ▶ Function expressions and arrow functions store functions in variables: const add = (a,b) => a + b; (implicit return without braces).
+//  ▶ Good functions do one job, have verb names, use parameters and return results.
+
+
