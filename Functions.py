@@ -81,3 +81,52 @@ Functions that receive other functions are called higher-order functions and the
 //  ▶ Good functions do one job, have verb names, use parameters and return results.
 
 
+// ==================== questions ================== \\
+
+/* (question-1) Write a small “library” of three functions for a canteen: itemTotal(price, qty),applyDiscount(amount, isStudent) (10% for students) 
+and finalBill(price, qty,isStudent) that uses the other two and returns a formatted string. */
+// function itemTotal(price, qty) {
+//   return price * qty;
+// }
+
+// function applyDiscount(amount, isStudent) {
+//   return isStudent ? amount * 0.9 : amount;
+// }
+
+// function finalBill(price, qty, isStudent = false) {
+//   const subtotal = itemTotal(price, qty);
+//   const payable = applyDiscount(subtotal, isStudent);
+//   return `Subtotal: Rs. ${subtotal.toFixed(2)} | Final Bill${isStudent ? " (Student 10% off)" : ""}: Rs. ${payable.toFixed(2)}`;
+// }
+
+// // Example usage in Console:
+// console.log(finalBill(80, 3, true));                         // Subtotal: Rs. 240.00 | Final Bill (Student 10% off): Rs. 216.00
+// console.log(finalBill(80, 3, false));                       // Subtotal: Rs. 240.00 | Final Bill: Rs. 240.00
+
+
+/* (question-2) Write isValidPassword(pwd) that returns true only if the password is at least 8 characters long, contains at least one of the 
+symbols @, # or $, and contains no spaces. Use early returns, one per rule, and explain why this makes the function easier to read than one long condition. */
+// function isValidPassword(pwd) {
+//   if (typeof pwd !== "string" || pwd.length < 8) {
+//     return false;
+//   }
+
+//   if (pwd.includes(" ")) {
+//     return false;
+//   }
+
+//   const hasSymbol =
+//     pwd.includes("@") || pwd.includes("#") || pwd.includes("$");
+//   if (!hasSymbol) {
+//     return false;
+//   }
+
+//   return true;                                              // Always remember in function we first write false condition then tryue condtion as like python so follow it it you will get answer 
+// }
+// // Example usage in Console:
+// console.log(isValidPassword("Pass@123"));                // true
+// console.log(isValidPassword("Pass#12"));                // false (7 chars: length less than 8)
+// console.log(isValidPassword("Pass @123"));             // false (contains a space)
+// console.log(isValidPassword("Password123"));          // false (missing @, #, or $)
+
+
