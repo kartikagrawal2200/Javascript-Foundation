@@ -10,7 +10,7 @@ big 2015 update (ES6) added let, const, arrow functions and template literals */
 
 
 // alert("welcome To Kartik code");
-// let visitor = prompt("what is your name?");
+// let visitor = prompt("what is your name?");          // Uses for to enter values bu users
 // console.log("hello, " + visitor);
 
 
