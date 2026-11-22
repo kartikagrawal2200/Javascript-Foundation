@@ -93,3 +93,53 @@ as a key: value pair. When a property’s value is a function, it is called a me
 // console.log(`Total seats left: ${totalSeats}`);         // Total seats left: 324
 
 
+// ============================== Getting keys, values and entries =========================== \\
+// const marks = {
+//   html: 92,
+//   css: 85,
+//   js: 95,
+// };
+
+// // 1. Object.keys(obj) -> returns an array of property names (keys)
+// const subjects = Object.keys(marks);
+// console.log("Keys:", subjects);                           // ['html', 'css', 'js']
+// console.log("Subjects:", subjects.join(", "));            // "html, css, js"
+
+// // 2. Object.values(obj) -> returns an array of property values
+// const scores = Object.values(marks);
+// console.log("Values:", scores);                                  // [92, 85, 95]
+// console.log("Best score:", Math.max(...scores));                 // 95
+
+// // 3. Object.entries(obj) -> returns an array of [key, value] pairs
+// const pairs = Object.entries(marks);
+// console.log("Entries:", pairs);                   // [['html', 92], ['css', 85], ['js', 95]]
+// console.log("Total entries:", pairs.length, "First pair:", pairs[0]);      // 3 ['html', 92]
+
+// // 4. Shallow copying & adding/overriding properties with Spread ({ ...o })
+// const original = { a: 1, b: 2 };
+// const updatedCopy = { ...original, c: 3 };            // copies original and adds c: 3
+// console.log("Spread copy:", updatedCopy);             // { a: 1, b: 2, c: 3 }
+// console.log("Original untouched:", original);         // { a: 1, b: 2 }
+
+// // 5. Copying / merging with Object.assign(target, source)
+// const assignedCopy = Object.assign({}, original, { b: 20, d: 4 });
+// console.log("Object.assign:", assignedCopy);                 // { a: 1, b: 20, d: 4 }
+
+// // 6. Locking an object against changes with Object.freeze(obj)
+// const config = Object.freeze({
+//   course: "CSE326",
+//   maxMarks: 100,
+// });
+
+// config.maxMarks = 200; // ignored (throws TypeError in strict mode)
+// config.newProp = "test";                                  // ignored
+// console.log("Frozen object:", config);                    // { course: 'CSE326', maxMarks: 100 }
+
+
+// =============================== Topic 11 Recap ==================================== \\
+// ▶ An object groups related data as key: value properties: { name: "Riya", cgpa: 8.4}.
+// ▶ Read with obj.key or obj["key"] (brackets for variable or unusual keys); missing properties give undefined.
+// ▶ Add or change by assignment, remove with delete, check with in or Object.hasOwn.
+// ▶ Methods are functions in objects; inside them this is the object (do not use arrow functions as such methods).
+// ▶ Nesting: student.address.city; use ?. for possibly missing parts. Arrays of objects are the Web’s favourite data structure.
+// ▶ Object.keys, Object.values, Object.entries; copy with { ...obj } (shallow); objects are shared by reference; destructuring and shorthand propertie
