@@ -124,3 +124,94 @@ element (or item), and each element has a numbered position, its index, starting
 ▶ Return a new value/array without mutating: indexOf, includes, slice, concat, join, at, and [...arr]. */
 
 
+// ================================================== Topic 10 Recap =============================================== \\
+// ▶ An array is an ordered list: const a = [x, y, z];. Indexes start at 0; a.length; last element a[a.length - 1] or a.at(-1).
+// ▶ Ends: push/pop (end), unshift/shift (start); these change the array.
+// ▶ Search: includes, indexOf. Parts: slice (copy) vs splice (change).
+// ▶ concat, spread [...a, ...b], join, reverse, sort (text by default; use (a, b) => a - b for numbers).
+// ▶ Destructuring: const [x, y] = a;. Arrays are shared by reference: copy with [...a]; === compares references.
+
+
+// ============================== questions ================================ \\
+/* (question 1)  Write a function addToCart(cart, item) that adds the item only if it is not already in the cart, and returns a message saying whether it was added or already present. */
+
+// const cart = [];
+// // 1. Add an item to the end of the cart
+// function addItem(itemName) {
+//   cart.push(itemName);                                 // item is added to cart
+//   console.log(`Added "${itemName}" -> Cart (${cart.length}): ${cart.join(", ")}`);
+// }
+// // 2. Remove a specific item from the cart if it exists
+// function removeItem(itemName) {
+//   const index = cart.indexOf(itemName);
+//   if (index === -1) {                                 // if item not found index return -1
+//     console.log(`"${itemName}" is not in the cart.`);
+//     return;
+//   }
+//   const [removed] = cart.splice(index, 1);            // updated cart after sucessfull remove the item
+//   console.log(`Removed "${removed}" -> Cart (${cart.length}): ${cart.join(", ") || "Empty"}`);         // in last empty is used if cart has one item then it will not show comma insted of this blackspace will shown
+// }
+// // 3. Remove the last added item (undo / pop)
+// function removeLastItem() {
+//   if (cart.length === 0) {                            // check wheter cart is empty or not 
+//     console.log("Cart is already empty.");
+//     return;
+//   }
+//   const removed = cart.pop();                        // removed last item from cart 
+//   console.log(`Popped last item "${removed}" -> Cart (${cart.length}): ${cart.join(", ") || "Empty"}`);
+// }
+// // 4. Show current cart summary
+// function showCart() {
+//   if (cart.length === 0) {
+//     console.log("Cart is empty (0 items).");
+//     return;
+//   }
+//   console.log(`Items (${cart.length}): ${cart.join(" | ")}`);
+// }
+// // --- Test Run ---
+// showCart();                         // Cart is empty (0 items).
+// addItem("Notebook");                // Added "Notebook" -> Cart (1): Notebook
+// addItem("Pen");                     // Added "Pen" -> Cart (2): Notebook, Pen
+// addItem("USB Drive");               // Added "USB Drive" -> Cart (3): Notebook, Pen, USB Drive
+// showCart();                         // Items (3): Notebook | Pen | USB Drive
+
+// removeItem("Pen");                  // Removed "Pen" -> Cart (2): Notebook, USB Drive
+// removeItem("Mouse");                // "Mouse" is not in the cart.
+// removeLastItem();                   // Popped last item "USB Drive" -> Cart (1): Notebook
+// showCart();                         // Items (1): Notebook
+
+
+/* (question 2) Write a function analyzeMarks(marksArray) that returns a new array with the three highest marks in descending order, without changing the original array. */
+
+// function analyzeMarks(marks) {
+//   if (!Array.isArray(marks) || marks.length === 0) {
+//     console.log("Please provide a non-empty array of marks.");
+//     return null;
+//   }
+//   // Spread syntax (...) unpacks array elements for Math.max / Math.min
+//   const highest = Math.max(...marks);
+//   const lowest = Math.min(...marks);
+//   // Copy with [...marks] before sorting so the original array is not mutated
+//   const sortedAsc = [...marks].sort((a, b) => a - b);
+//   const sortedDesc = [...marks].sort((a, b) => b - a);
+//   // Calculate total without a loop (for 5 marks) or average via helper
+//   const total = marks[0] + marks[1] + marks[2] + marks[3] + marks[4];
+//   const average = total / marks.length;
+
+//   console.log("=== Marks Report ===");
+//   console.log("Original marks:", marks.join(", "));                  // Original marks: 78, 92, 64, 85, 88
+//   console.log("Total subjects:", marks.length);                      // Total subjects: 5
+//   console.log("Highest mark:", highest);                             // Highest mark: 92
+//   console.log("Lowest mark:", lowest);                               // Lowest mark: 64
+//   console.log("Lowest to highest:", sortedAsc.join(" < "));          // Lowest to highest: 64 < 78 < 85 < 88 < 92
+//   console.log("Highest to lowest:", sortedDesc.join(" > "));         // Highest to lowest: 92 > 88 > 85 > 78 > 64
+//   console.log("First & last mark:", marks.at(0), "and", marks.at(-1));       // First & last mark: 78 and 88 
+//   console.log("Average (approx):", average.toFixed(2));                      // Average (approx): 81.40
+//   console.log("Original array unchanged:", marks);                           // Original array unchanged: [ 78, 92, 64, 85, 88 ]
+
+//   return { highest, lowest, sortedAsc, sortedDesc };
+// }
+// // --- Test Run ---
+// const subjectMarks = [78, 92, 64, 85, 88];
+// analyzeMarks(subjectMarks);
+
