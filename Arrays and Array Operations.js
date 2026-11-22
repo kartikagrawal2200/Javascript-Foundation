@@ -48,7 +48,8 @@ element (or item), and each element has a numbered position, its index, starting
 // console.log(plates);                                // ['P1', 'P2', 'P4', 'P5']
 
 
-// ================ Array Methods ================ \\
+// ============ Array Methods ============= \\
+
 // 1. Adding and removing at the END: push() and pop() (mutates original array)
 // const stack = [10, 20, 30];
 // stack.push(40);                                // adds 40 to the end -> [10, 20, 30, 40]
@@ -96,16 +97,30 @@ element (or item), and each element has a numbered position, its index, starting
 // const scores = [10, 2, 100, 25];
 // scores.sort((x, y) => x - y);                           // ascending numeric order
 // console.log("sorted numbers:", scores);                 // sorted numbers: [ 2, 10, 25, 100 ]
+// scores.sort((a, b) => b - a);                           // numeric descending
+// console.log(scores);                                    // [ 100, 25, 10, 2 ]
 
 // 9. Indexing from the end: at(-1)
 // const letters = ["a", "b", "c", "d"];
 // console.log("at(-1):", letters.at(-1));                 // "d" (last element)
 
-// 10. Shallow copy via Spread syntax: [...arr]
+// 10. Shallow copy via Spread syntax and ,finding the maximum, destructuring and swapping: [...arr]
 // const copy = [...letters];                              
 // copy.push("e");                                  
-// console.log("spread copy:", copy, "original letters:", letters);          // spread copy: [ 'a', 'b', 'c', 'd', 'e' ] original letters: [ 'a', 'b', 'c', 'd' ] (on copying in another varaible or changing something in copying array does not reflect in orginial array)
+// console.log("spread copy:", copy, "original letters:", letters);       // spread copy: [ 'a', 'b', 'c', 'd', 'e' ] original letters: [ 'a', 'b', 'c', 'd' ] (on copying in another varaible or changing something in copying array does not reflect in orginial array)
+// console.log(Math.max(...scores), Math.min(...scores));                 // 95 64 (Maximum and minimum)
+// const [first, second, ...rest] = letters;                              // destructuring
+// console.log(first, second, rest);                                      // 72 95 [64, 88]
+// let left = "Aman", right = "Priya";
+// [left, right] = [right, left]; // swap in one line                     // swap in one line
+// console.log(left, right);                                              // Priya Aman
 
 // 11. Checking if a value is an array: Array.isArray()
 // console.log("Array.isArray(letters):", Array.isArray(letters));           // Array.isArray(letters): true               
 // console.log('Array.isArray("abc"):', Array.isArray("abc"));               // Array.isArray("abc"): false
+
+/* Quick Summary: Mutating vs. Non-Mutating
+▶ Mutate the original array: push, pop, unshift, shift, splice, reverse, sort (watch out for accidental changes if you still need the original order).
+▶ Return a new value/array without mutating: indexOf, includes, slice, concat, join, at, and [...arr]. */
+
+
